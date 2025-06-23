@@ -64,6 +64,7 @@ header {
     font-size: 1.3rem;
     box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
     z-index: 999;
+    flex-wrap: wrap;
 }
 
 .headingWrapper {
@@ -120,12 +121,12 @@ header {
 
 /*------------------------------HERO SECTION-----------------------------*/
 .heroWrapper {
+    margin-top: 12rem;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding: 0.8rem;
-    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
 }
 
 .heroTextWrapper {
@@ -175,6 +176,7 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #f5f5f5;
+    padding-bottom: 5rem;
 }
 
 .articlesWrapper {
@@ -190,6 +192,7 @@ header {
 .articlesWrapper article {
     min-width: 18.75rem;
     max-width: 20rem;
+    min-height: 18.75rem;
     max-height: 20rem;
     box-shadow: 0px 0px 2px 1px rgb(62 39 35 / 20%);
     border-radius: 2rem;
@@ -215,22 +218,26 @@ header {
 /*---------------------------REVIEWS SECTION----------------------------*/
 .reviewsWrapper {
     width: 100%;
-    height: 35rem;
+    position: relative;
+    height: auto;
 }
 
 .reviewsWrapper .clipContainer {
-    background-color: #bb6a6630;
+    background-color: #bb6a6650;
     width: 100%;
     height: 100%;
     position: absolute;
     clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 60%);
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+    z-index: -999;
 }
 
 .articlesContainer {
     background-color: transparent;
     margin-top: 5rem;
     width: 100%;
-    position: absolute;
     padding: 3rem;
     display: flex;
     gap: 1.3rem;
@@ -274,21 +281,6 @@ header {
     display: block;
 }
 
-.reviewsWrapper #JohnDore {
-    box-shadow: 0px 8px 0px 0px #66bb6a;
-}
-
-.reviewsWrapper #JohnDore {
-    box-shadow: 0px 8px 0px 0px #66bb6a;
-}
-
-.reviewsWrapper #Peter {
-    box-shadow: 0px 8px 0px 0px #6a66bb;
-}
-
-.reviewsWrapper #LuluChang {
-    box-shadow: 0px 8px 0px 0px #bb6a66;
-}
 
 .reviewsWrapper article .imgWrapper {
     width: 5rem;
@@ -304,14 +296,17 @@ header {
     margin-bottom: 1rem;
 }
 
-.reviewsWrapper article+p{
+.reviewsWrapper article+p {
     color: #616161;
 }
 
 
-/*-----------------------------NEW HERE SECTION---------------------------------------*/
-.newHereWrapper {
-    padding: 1.8rem;
+/*-----------------------------FOOTER---------------------------------------*/
+
+footer {
     width: 100%;
-    height: 600px;
+    min-height: 200px;
+    color: white;
+    background-color: #2e7d32;
+    border-radius: 8px 8px 0 0;
 }

@@ -77,7 +77,8 @@ button:hover {
 header button{
     width: fit-content;
     background: #a07543;
-    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+    color: white;
 }
 
 header button:hover {
