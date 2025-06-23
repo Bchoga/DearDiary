@@ -1,0 +1,317 @@
+/*----------------------------------------GENERAL--------------------------------------------*/
+:root {
+    --buttonColor: #66bb6a;
+    --buttonHoverColor: #a5d6a7;
+    --darkGreen: #1b5e20;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    font-size: 1.3rem;
+    background-color: var(--buttonColor);
+    border: none;
+    border-radius: 2rem;
+}
+
+button:hover {
+    background-color: var(--buttonHoverColor);
+}
+
+/*-----------------------------------HEADER SECTION---------------------------------------*/
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
+    z-index: 999;
+}
+
+.headingWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.iconWrapper>img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.appName {
+    font-family: 'Delius', cursive;
+    font-size: 2.5rem;
+}
+
+.headerNav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.headerNav a:hover {
+    border-bottom: 3px solid var(--buttonColor);
+    transition: all ease-in-out 100ms;
+}
+
+.themeSwitchWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.themeSwitchWrapper:hover {
+    border-bottom: 3px solid var(--buttonColor);
+    transition: all ease-in-out 100ms;
+}
+
+.themeIcon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.signInButtonWrapper button {
+    font-size: 1.3rem;
+    background-color: var(--buttonColor);
+    border: none;
+    border-radius: 2rem;
+}
+
+.signInButtonWrapper button:hover {
+    background-color: var(--buttonHoverColor);
+}
+
+/*------------------------------HERO SECTION-----------------------------*/
+.heroWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.8rem;
+    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.heroTextWrapper {
+    width: auto;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.heroImageWrapper img {
+    width: auto;
+    max-width: 50%;
+}
+
+.heroTextWrapper h1 {
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.heroTextWrapper p {
+    text-align: center;
+}
+
+/*----------------------------BENEFITS SECTION---------------------------*/
+.didYouKnowTextWrapper {
+    width: 100%;
+    background-color: #efebe9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.8rem 1rem 0.8rem;
+    font-size: 1.2rem;
+    gap: 1.3rem;
+}
+
+.didYouKnowTextWrapper img {
+    max-width: 20rem;
+}
+
+/*---------------------------FEATURES SECTION----------------------------*/
+.featuresWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.articlesWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding: 0.8rem;
+}
+
+.articlesWrapper article {
+    min-width: 18.75rem;
+    max-width: 20rem;
+    max-height: 20rem;
+    box-shadow: 0px 0px 2px 1px rgb(62 39 35 / 20%);
+    border-radius: 2rem;
+    padding: 0.8rem;
+    background: white;
+}
+
+.articlesWrapper article:hover {
+    transform: scale(1.1);
+    transition: all ease-in-out 300ms;
+    cursor: pointer;
+}
+
+.articlesWrapper article img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.articlesWrapper article p {
+    font-size: 1.2rem;
+}
+
+/*---------------------------REVIEWS SECTION----------------------------*/
+.reviewsWrapper {
+    width: 100%;
+    height: 35rem;
+}
+
+.reviewsWrapper .clipContainer {
+    background-color: #bb6a6630;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 60%);
+}
+
+.articlesContainer {
+    background-color: transparent;
+    margin-top: 5rem;
+    width: 100%;
+    position: absolute;
+    padding: 3rem;
+    display: flex;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.reviewsWrapper article {
+    min-width: 18.75rem;
+    max-width: 19rem;
+    min-height: 20rem;
+    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
+    border-radius: 2rem;
+    padding: 0.8rem;
+    background: white;
+}
+
+.reviewsWrapper article .name {
+    font-weight: 600;
+}
+
+.reviewsWrapper article .email {
+    font-weight: 100;
+    color: #424242;
+    font-style: italic;
+}
+
+.reviewsWrapper article .imgWrapper {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
+    overflow: hidden;
+}
+
+
+.reviewsWrapper article .imgWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.reviewsWrapper #JohnDore {
+    box-shadow: 0px 8px 0px 0px #66bb6a;
+}
+
+.reviewsWrapper #JohnDore {
+    box-shadow: 0px 8px 0px 0px #66bb6a;
+}
+
+.reviewsWrapper #Peter {
+    box-shadow: 0px 8px 0px 0px #6a66bb;
+}
+
+.reviewsWrapper #LuluChang {
+    box-shadow: 0px 8px 0px 0px #bb6a66;
+}
+
+.reviewsWrapper article .imgWrapper {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 1px rgb(62 39 35 / 20%);
+}
+
+.reviewsWrapper .displayWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.reviewsWrapper article+p{
+    color: #616161;
+}
+
+
+/*-----------------------------NEW HERE SECTION---------------------------------------*/
+.newHereWrapper {
+    padding: 1.8rem;
+    width: 100%;
+    height: 600px;
+}

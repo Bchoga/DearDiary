@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    font-size: 1.3rem;
+    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.headingWrapper {
+    display: flex;
+}
+
+.iconWrapper img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.searchBarWrapper {
+    display: flex;
+    position: relative;
+}
+
+.searchBarWrapper img {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.searchIconBtn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    height: 1.2rem;
+    width: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topRow {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.topRow img {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.topRow #addButton{
+    background: #1b5e20;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.2rem;
+}
+
+.topRow #addButton:hover{
+    transform: scale(1.1);
+    transition: all ease-in-out 300ms;
+}
+
+.entriesContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.inputFormWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 1000;
+    justify-content: center;
+}
+
+.inputFormWrapper #inputForm {
+    max-width: 500px;
+    margin: 5% auto 0 auto;
+    padding: 1rem;
+
+}
+
+#inputForm #title {
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+}
+
+label[for="title"] {
+    font-size: 3rem;
+    color: #4743a0;
+}
+
+#inputForm #title:focus {
+    outline: none;
+}
+
+#inputForm #entryContent {
+    font-size: 1.0rem;
+    border: #6abb6a 2px solid;
+    border-radius: 8px;
+}
+
+#inputForm #entryContent:focus {
+    outline: none;
+    border: #43a047 3px solid;
+}
+
+/* style for the dynamically created cards */
+.entryCard {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.entryCard .cardButtonContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.entryCard .editEntry {
+    background: #43a047;
+}
+
+.entryCard .deleteEntry {
+    background: salmon;
+
+}
+
+.entryCard button {
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    color: white;
+}
+
+.entryCard button:hover {
+    transform: scale(1.2);
+    transition: all ease-in-out 300ms;
+}
+
+.entryCard h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.entryTime {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}

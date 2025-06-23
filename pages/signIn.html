@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/signIn.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/signIn.js"></script>
+</html>
+</head>
+
+<body>
+
+    <header>
+        <!-- logo image -->
+        <div class="headingWrapper">
+            <div class="iconWrapper">
+                <img src="../assets/icons/diary_black.png" alt="small image of diary">
+            </div>
+            <div class="appName">
+                <p>Dear Diary</p>
+            </div>
+        </div>
+        <!-- navigation -->
+        <nav class="headerNav">
+            <button onclick="window.location.href='../index.html'">Back-Home</button>
+        </nav>
+    </header>
+
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <!-- put icon of a lock here -->
+        <form class="signInForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autocomplete="user04">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="bchoga4@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <!-- also put a small key icon here -->
+            <button type="submit">Sign In</button>
+
+            <p>New Here? <a href="">Sign Up!</a></p>
+        </form>
+    </div>
+
+    <div class="loadingContainer">
+        <p>Loading....</p>
+    </div>
+
+    <div class="errorContainer">
+        <span id="exclamation">Oops!</span>
+        <span id="errorMsg"></span>
+        <br>
+        <button id="tryAgainBtn">Try again</button>
+    </div>
+    
+</body>
+</html>

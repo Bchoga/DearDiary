@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/diary.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/diary.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- logo image -->
+        <div class="headingWrapper">
+            <div class="iconWrapper">
+                <img src="../assets/icons/diary_black.png" alt="small image of diary">
+            </div>
+            <div class="appName">
+                <p>Dear Diary</p>
+            </div>
+        </div>
+
+        <div class="searchBarWrapper">
+            <input type="text" id="searchbar">
+            <div searchIconWrapper>
+                <button class="searchIconBtn">
+                    <img src="../assets/icons/search.svg" alt="search icon">
+                </button>
+            </div>
+        </div>
+        <div class="signInButtonWrapper"><button id="signOutBtn">SignOut</button></div>
+    </header>
+    <main>
+
+        <div class="topRow">
+            <div class="welcomeContainer">
+                <span id="welcome">
+                    <p>Welcome</p>
+                </span>
+                <span id="user">
+                    <p id="userName"></p>
+                </span>
+            </div>
+
+            <span id="addButtonWrapper"><button id="addButton">New Entry</button></span>
+        </div>
+
+
+        <p class="emptyMessage"> No Entries yet, click the add button to make your first entry</p>
+        
+        <div class="entriesContainer">
+
+            <div class="inputFormWrapper" style="display: none;">
+                <form action="submit" id="inputForm">
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" placeholder="Title of your entry" required>
+                    <textarea id="entryContent" rows="8" style="resize: vertical; width: 100%;"
+                        placeholder="Enter Your Thoughts here..." required></textarea>
+                    <div class="actionBtns">
+                        <button type="button" id="inputFormCancel">Cancel</button>
+                        <button type="submit" id="inputFormSubmit">Save</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>

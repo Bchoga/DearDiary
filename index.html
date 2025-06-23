@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearDiary</title>
+    <!-- filepath: /home/brian/Documents/tunga_fs/assignments/DearDiary/index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <header>
+        <!-- logo image -->
+        <div class="headingWrapper">
+            <div class="iconWrapper">
+                <img src="assets/icons/diary_black.png" alt="small image of diary">
+            </div>
+            <div class="appName">
+                <p>Dear Diary</p>
+            </div>
+        </div>
+        <!-- navigation -->
+        <nav class="headerNav">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Features</a>
+        </nav>
+
+        <!-- theme -->
+        <div class="themeSwitchWrapper">
+            <span class="themeIcon" id="themeIcon"> &#9788;</span>
+            <span class="themeText">Theme</span>
+        </div>
+        <!-- moon = &#9790; -->
+        <!-- SignIn -->
+        <div class="signInButtonWrapper"><button onclick="window.location.href='./pages/signIn.html'">SignIn</button></div>
+    </header>
+
+    <main>
+        <!-- hero text container -->
+        <section class="heroWrapper">
+            <div class="heroTextWrapper">
+                <h1>Your Diary, Your Best Friend</h1>
+                <p>Keep your personal reflections in a safe secure place</p>
+                <button>Get Started</button>
+            </div>
+            <div class="heroImageWrapper">
+                <img src="assets/images/Notes-amico.png" alt="image of person writting">
+            </div>
+        </section>
+
+        <!-- features -->
+        <section class="featuresWrapper">
+            <!-- <h2>Features</h2> -->
+            <div class="articlesWrapper">
+                <article class="free">
+                    <!-- lock icon -->
+                    <img src="assets/icons/usd-circleOutline.svg" alt="image of money">
+                    <h2>Free</h2>
+                    <p>Dear Diary is completely free to use, enjoy all the features without spending any money</p>
+                </article>
+                <article class="privacy">
+                    <!-- lock icon -->
+                    <img src="assets/icons/padlock-check.svg" alt="image of money">
+                    <h2>Secure</h2>
+                    <p>We value your privacy so much that we guarantee no one but you can see your info!</p>
+                </article>
+                <article class="userFriendly">
+                    <!-- thumbs up icon -->
+                    <img src="assets/icons/keyboard-finger.svg" alt="image of money">
+                    <h2>User Friendly</h2>
+                    <p>This app was designed with people in mind, simple to use and get around for you to spend more
+                        time on actualy journaling</p>
+                </article>
+                <article class="markdown">
+                    <!-- markdown support -->
+                    <img src="assets/icons/square-code.svg" alt="image of money">
+                    <h2>Markdown</h2>
+                    <p> We have included markdown support for those who want to be in control of how they write!</p>
+                </article>
+                <article class="search">
+                    <!-- search icon -->
+                    <img src="assets/icons/discover.svg" alt="image of money">
+                    <h2>Quick Search</h2>
+                    <p>Instantly find previous entries with our advanced search functionality.</p>
+                </article>
+                <article class="customizable">
+                    <!-- customizable -->
+                    <img src="assets/icons/settings-sliders.svg" alt="image of money">
+                    <h2>Customizable</h2>
+                    <p>Choose between the our beautiful themes to your liking, more themes on the way!</p>
+                </article>
+            </div>
+
+
+            <!-- <section class="didYouKnowSection">
+            
+                <div class="didYouKnowTextWrapper">
+                    <h2>Did You Know?</h2>
+                    <div class="knowContent">
+                        <p>It is known that journaling your life creates peace of mind and keeps life intresting.
+                            Journaling
+                            offers
+                            numerous benefits for mental and emotional well-being, including stress reduction, improved
+                            self-awareness, and enhanced emotional processing.
+                            It can also contribute to better memory, creativity, and even physical health. Doing this
+                            with the Dear Diary app adds even more benefits!.
+                        </p>
+                        <img src="" alt="image of a peaceful scenary">
+                    </div>
+
+                </div>
+            </section> -->
+
+        </section>
+        <!-- app review -->
+        <section class="reviewsWrapper">
+            <div class="positioningContainer">
+                <div class="clipContainer">
+                    <h2>What Are people Saying?</h2>
+                </div>
+                <div class="articlesContainer">
+                    <article id="JohnDore">
+                        <div class="displayWrapper">
+                            <div class="imgWrapper">
+                                <img src="assets/images/john.jpg" alt="image of a man">
+                            </div>
+                            <div class="userInfo">
+                                <p class="name"> John Dore</p>
+                                <p class="email">jdore@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <p>"I like this app, it does exactly what i need. I have tried a lot other apps in the past....,
+                            i am
+                            now sticking to this one."
+                        </p>
+                    </article>
+                    <article id="Peter">
+                        <div class="displayWrapper">
+                            <div class="imgWrapper">
+                                <img src="assets/images/peter.jpg" alt="image of man smilling">
+                            </div>
+                            <div class="userInfo">
+                                <p class="name">Peter</p>
+                                <p class="email">pet20@ymail.com</p>
+                            </div>
+                        </div>
+
+                        <p>"Simple and staright forward"</p>
+                    </article>
+                    <article id="LuluChang">
+                        <div class="displayWrapper">
+                            <div class="imgWrapper">
+                                <img src="assets/images/lulu.jpg" alt="image of a women">
+                            </div>
+                            <div class="userInfo">
+                                <p class="name">Lulu</p>
+                                <p class="email">lchang01@gmail.com</p>
+                            </div>
+                        </div>
+                        <p>"I love the design, and most importantly helps me stay produtive, somehow!"</p>
+                    </article>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NEW HERE-->
+        <section class="newHereWrapper">
+            <h2>New Here?</h2>
+            <div class="contentWrapper">
+                <ul>
+                    <li>Create an account by signingUp</li>
+                    <li>Start Journaling</li>
+                    <li>Manage your entries</li>
+                    <li>JUST LIKE THAT!</li>
+                </ul>
+                <div class="image"></div>
+            </div>
+            <button>Get Started</button>
+        </section>
+    </main>
+
+    <footer>
+        <!-- cool footer stuff -->
+    </footer>
+</body>
+
+</html>
