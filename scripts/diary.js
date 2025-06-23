@@ -13,24 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
         inputFormSubmit: document.getElementById('inputFormSubmit'),
         inputFormCancel: document.getElementById('inputFormCancel'),
         emptyMessage: document.querySelector('.emptyMessage'),
+        editFormWrapper: document.querySelector('.editFormWrapper'),
+        editForm: document.querySelector('#editForm'),
+
     }
+
+    //load all entries from database
     loadAllEntries();
 
-    // search items
-    // signOut Button
-    // emptyMessage
-    // entriesContainer 
+    // event listener for add entry button
     docElements.addButton.addEventListener('click', () => {
         docElements.inputFormWrapper.style.display = 'flex';
     });
-
+    //input form submission
     docElements.inputForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        // TODO: clear my inputs
-        // show loading container
-        // submit
-        // create new entry card
-        //
         docElements.inputFormWrapper.style.display = 'none';
         let title = document.querySelector('#title').value;
         let content = document.querySelector('#entryContent').value;
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let entryID = response.data.data.id;
             const now = new Date();
             const dateTimeString = now.toLocaleString();
-
             createEntryCard(title, content, dateTimeString, entryID);
         }
 
@@ -78,7 +74,9 @@ function createEntryCard(title, content, dateTimeString, entryID) {
     // Time created
     const timeElem = document.createElement('span');
     timeElem.className = 'entryTime';
-    timeElem.textContent = dateTimeString;
+    const dateTime = new Date(dateTimeString);
+    const myTime = dateTime.toLocaleString();
+    timeElem.textContent = myTime;
     card.appendChild(timeElem);
 
     // Content
@@ -110,10 +108,11 @@ function createEntryCard(title, content, dateTimeString, entryID) {
 
     //add event listeners and 
     editButton.addEventListener('click', () => {
-        console.log("edit");
+        //call the input form with the card values 
+        editEntry(card.id);
+
     });
     deleteButton.addEventListener('click', () => {
-        console.log("delete");
         deleteEntry(card.id);
     });
 
@@ -170,16 +169,49 @@ async function loadAllEntries() {
     }
 }
 
-async function deleteEntry(id){
+async function editEntry(id) {
 
-    // let goAhead = prompt("are you sure?");
+    let card = document.getElementById(id);
+    let oldTitle = card.querySelector('h3').textContent;
+    let oldContent = card.querySelector('p').textContent;
+    console.log("edit");
+    // call input form with these values
+    docElements.editFormWrapper.style.display = 'flex';
+    // docElements.inputForm.querySelector('title').value = oldTitle;
+    // docElements.inputForm.querySelector('entryContent').value = oldContent;
 
-    // if(!goAhead){
-    //     return;
-    // }
 
-   try{
-    const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
+    //deleteEntry(id);
+
+
+
+    //    try{
+    //     const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
+    //         const jwt = token ? token.split('=')[1] : null;
+
+    //         const response = await axios.put(`${API_BASE_URL}/diary/update/${id}`,
+    //             {
+    //                 headers: { Authorization: `Bearer ${jwt}` }
+    //             }
+    //         );
+
+    //         if(response.status === 200){
+    //             const card = document.getElementById(id);
+    //             if(card) card.remove();
+    //         }
+
+    //    }
+
+    //    catch(error){
+    //     console.log(error);
+    //    }
+}
+
+
+async function deleteEntry(id) {
+
+    try {
+        const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
         const jwt = token ? token.split('=')[1] : null;
 
         const response = await axios.delete(`${API_BASE_URL}/diary/delete/${id}`,
@@ -188,14 +220,13 @@ async function deleteEntry(id){
             }
         );
 
-        if(response.status === 200){
+        if (response.status === 200) {
             const card = document.getElementById(id);
-            if(card) card.remove();
+            if (card) card.remove();
         }
-        // remove card from dom
 
-   }
-   catch(error){
-    console.log(error);
-   }
+    }
+    catch (error) {
+        console.log(error);
+    }
 }

@@ -26,7 +26,7 @@
         </div>
 
         <div class="searchBarWrapper">
-            <input type="text" id="searchbar">
+            <input type="text" id="searchBar">
             <div searchIconWrapper>
                 <button class="searchIconBtn">
                     <img src="../assets/icons/search.svg" alt="search icon">
@@ -52,11 +52,25 @@
 
 
         <p class="emptyMessage"> No Entries yet, click the add button to make your first entry</p>
-        
+
         <div class="entriesContainer">
 
             <div class="inputFormWrapper" style="display: none;">
                 <form action="submit" id="inputForm">
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" placeholder="Title of your entry" required>
+                    <textarea id="entryContent" rows="8" style="resize: vertical; width: 100%;"
+                        placeholder="Enter Your Thoughts here..." required></textarea>
+                    <div class="actionBtns">
+                        <button type="button" id="inputFormCancel">Cancel</button>
+                        <button type="submit" id="inputFormSubmit">Save</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="editFormWrapper" style="display: none;">
+                <form action="submit" id="editForm">
                     <label for="title">Title: </label>
                     <input type="text" id="title" placeholder="Title of your entry" required>
                     <textarea id="entryContent" rows="8" style="resize: vertical; width: 100%;"

@@ -15,10 +15,17 @@ header {
     padding: 0.8rem 1rem 0.8rem 1rem;
     font-size: 1.3rem;
     box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .headingWrapper {
     display: flex;
+    align-items: center;
+}
+.appName{
+    font-family: 'Delius', cursive;
+    font-size: 2.5rem;
 }
 
 .iconWrapper img {
@@ -31,6 +38,16 @@ header {
     position: relative;
 }
 
+#searchBar{
+    height: fit-content;
+    font-size: 1.3rem;
+    max-width: 300px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    border:2px solid #a07543;
+}
+
 .searchBarWrapper img {
     width: 1.3rem;
     height: 1.3rem;
@@ -39,6 +56,7 @@ header {
 .searchIconBtn {
     position: absolute;
     right: 10px;
+    top: 6.5px;
     background: none;
     border: none;
     padding: 0;
@@ -48,6 +66,21 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#signOutBtn{
+    background-color: #a07543;
+    border-radius: 2rem;
+    color: white;
+    border: none;
+    font-size: 1.3rem;
+    /* margin-top: 1rem; */
+    font-weight: 600;
+}
+
+#signOutBtn:hover{
+    transform: rotate(-10deg);
+    transition: all ease-in-out 300ms;
 }
 
 .topRow {
@@ -89,7 +122,7 @@ header {
     padding: 1rem;
 }
 
-.inputFormWrapper {
+.inputFormWrapper, .editFormWrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -100,7 +133,7 @@ header {
     justify-content: center;
 }
 
-.inputFormWrapper #inputForm {
+.inputFormWrapper #inputForm, .editFormWrapper #editForm{
     max-width: 500px;
     margin: 5% auto 0 auto;
     padding: 1rem;
@@ -114,21 +147,20 @@ header {
 }
 
 label[for="title"] {
-    font-size: 3rem;
-    color: #4743a0;
+    font-size: 1.5rem;
 }
 
-#inputForm #title:focus {
+#inputForm #title:focus, #editForm #title:focus {
     outline: none;
 }
 
-#inputForm #entryContent {
+#inputForm #entryContent, #editForm #entryContent {
     font-size: 1.0rem;
     border: #6abb6a 2px solid;
     border-radius: 8px;
 }
 
-#inputForm #entryContent:focus {
+#inputForm #entryContent:focus, #editForm #entryContent:focus{
     outline: none;
     border: #43a047 3px solid;
 }
