@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diary</title>
+    <link rel="icon" type="image/png" href="../assets/icons/diary_favicon.png">
     <link rel="stylesheet" href="../styles/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/diary.css">
+    <link rel="stylesheet" href="../styles/loader.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/diary.js"></script>
 </head>
@@ -26,14 +28,14 @@
         </div>
 
         <div class="searchBarWrapper">
-            <input type="text" id="searchBar">
+            <input type="text" id="searchBar" placeholder="search by title...">
             <div searchIconWrapper>
                 <button class="searchIconBtn">
                     <img src="../assets/icons/search.svg" alt="search icon">
                 </button>
             </div>
         </div>
-        <div class="signInButtonWrapper"><button id="signOutBtn">SignOut</button></div>
+        <div class="signOutButtonWrapper"><button id="signOutBtn">SignOut</button></div>
     </header>
     <main>
 
@@ -72,17 +74,19 @@
             <div class="editFormWrapper" style="display: none;">
                 <form action="submit" id="editForm">
                     <label for="title">Title: </label>
-                    <input type="text" id="title" placeholder="Title of your entry" required>
+                    <input type="text" id="title" placeholder="new title" required>
                     <textarea id="entryContent" rows="8" style="resize: vertical; width: 100%;"
-                        placeholder="Enter Your Thoughts here..." required></textarea>
+                        placeholder="Edit Thoughts ..." required></textarea>
                     <div class="actionBtns">
-                        <button type="button" id="inputFormCancel">Cancel</button>
-                        <button type="submit" id="inputFormSubmit">Save</button>
+                        <button type="button" id="editFormCancel">Cancel</button>
+                        <button type="submit" id="editFormSubmit">Save</button>
                     </div>
 
                 </form>
             </div>
 
+        </div>
+        <div class="loadingContainer loader" style="display: none;">
         </div>
     </main>
     <footer>

@@ -1,6 +1,6 @@
 :root {
-    --buttonColor: #43a047; 
-    --buttonHoverColor: #66bb6a;
+    --buttonColor: #a07543; 
+    --buttonHoverColor: #1b5e20;;
     --darkGreen: #1b5e20;
 }
 
@@ -63,13 +63,14 @@ button {
     width: 250px;
     padding: 0.5rem;
     background: var(--buttonColor);
-    color: #000;
+    color: #fff;
     border: none;
     border-radius: 2rem;
     font-size: 1rem;
     cursor: pointer;
+    font-weight: 600;
 }
-button:hover {
+.signInCForm button:hover {
     background: var(--buttonHoverColor);
     color: #000;
 }
@@ -82,6 +83,7 @@ header button{
 }
 
 header button:hover {
+    background: #a07543;
     transform: rotate(-10deg);
 }
 a{

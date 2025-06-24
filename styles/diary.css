@@ -41,7 +41,7 @@ header {
 #searchBar{
     height: fit-content;
     font-size: 1.3rem;
-    max-width: 300px;
+    min-width: 300px;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -66,6 +66,18 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.welcomeContainer{
+    font-family: 'Delius', cursive;
+    font-size: 1.8rem;
+}
+
+.emptyMessage{
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #636363;
+    font-style: italic;
 }
 
 #signOutBtn{
@@ -97,7 +109,7 @@ header {
 }
 
 .topRow #addButton{
-    background: #1b5e20;
+    background: #a07543;
     color: white;
     border-radius: 8px;
     border: none;
@@ -128,7 +140,7 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #fff;
+    background: #ffffffee;
     z-index: 1000;
     justify-content: center;
 }
@@ -155,14 +167,51 @@ label[for="title"] {
 }
 
 #inputForm #entryContent, #editForm #entryContent {
+    margin-top: 1rem;
     font-size: 1.0rem;
-    border: #6abb6a 2px solid;
+    border: #a07543 2px solid;
     border-radius: 8px;
 }
 
 #inputForm #entryContent:focus, #editForm #entryContent:focus{
     outline: none;
-    border: #43a047 3px solid;
+    border: #a07543 3px solid;
+}
+
+.actionBtns{
+    display: flex;
+    justify-content: space-around;
+}
+
+.actionBtns button{
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+
+}
+
+.actionBtns button:hover{
+    transform: scale(1.1);
+    transition: all ease-in-out 300ms;
+}
+
+.actionBtns #inputFormCancel{
+    background: #a04743;
+}
+
+.actionBtns #editFormCancel{
+    background: #a04743;
+}
+
+.actionBtns #inputFormSubmit{
+    background: #43a047;
+
+}
+
+.actionBtns #editFormSubmit{
+    background: #43a047;
+
 }
 
 /* style for the dynamically created cards */
@@ -173,6 +222,13 @@ label[for="title"] {
     padding: 1rem;
     margin-bottom: 1rem;
     overflow: hidden;
+    /* max-width: 500px; */
+}
+
+.entryCard:hover{
+    /* position: absolute; */
+    transform: scale(1.05);
+    transition: all ease-in 300ms;
 }
 
 .entryCard .cardButtonContainer{
@@ -187,8 +243,7 @@ label[for="title"] {
 }
 
 .entryCard .deleteEntry {
-    background: salmon;
-
+    background: #a04743;
 }
 
 .entryCard button {
@@ -214,4 +269,11 @@ label[for="title"] {
     font-size: 0.85rem;
     color: #888;
     margin-bottom: 0.5rem;
+}
+
+/*for Search */
+.entryCard.highlight {
+    border: 2px solid #43a047;
+    background: #e8f5e9;
+    transition: background 300ms, border 300ms;
 }

@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
+    <link rel="icon" type="image/png" href="../assets/icons/diary_favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/signIn.css">
+    <link rel="stylesheet" href="../styles/loader.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/signIn.js"></script>
 </html>
@@ -30,6 +32,9 @@
             <button onclick="window.location.href='../index.html'">Back-Home</button>
         </nav>
     </header>
+
+     <div class="loadingContainer loader">
+    </div>
 
     <div class="signin-container">
         <h2>Sign In</h2>
@@ -54,9 +59,6 @@
         </form>
     </div>
 
-    <div class="loadingContainer">
-        <p>Loading....</p>
-    </div>
 
     <div class="errorContainer">
         <span id="exclamation">Oops!</span>

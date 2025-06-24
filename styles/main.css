@@ -1,7 +1,7 @@
 /*----------------------------------------GENERAL--------------------------------------------*/
 :root {
-    --buttonColor: #66bb6a;
-    --buttonHoverColor: #a5d6a7;
+    --buttonColor: #a07543; 
+    --buttonHoverColor: #1b5e20;;
     --darkGreen: #1b5e20;
 }
 
@@ -11,6 +11,7 @@
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -46,6 +47,8 @@ button {
     background-color: var(--buttonColor);
     border: none;
     border-radius: 2rem;
+    color: white;
+    font-weight: 600;
 }
 
 button:hover {
@@ -153,30 +156,16 @@ header {
     text-align: center;
 }
 
-/*----------------------------BENEFITS SECTION---------------------------*/
-.didYouKnowTextWrapper {
-    width: 100%;
-    background-color: #efebe9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 0.8rem 1rem 0.8rem;
-    font-size: 1.2rem;
-    gap: 1.3rem;
-}
-
-.didYouKnowTextWrapper img {
-    max-width: 20rem;
-}
 
 /*---------------------------FEATURES SECTION----------------------------*/
 .featuresWrapper {
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f5f5f5;
     padding-bottom: 5rem;
+    padding-top: 5rem;
 }
 
 .articlesWrapper {
@@ -192,7 +181,7 @@ header {
 .articlesWrapper article {
     min-width: 18.75rem;
     max-width: 20rem;
-    min-height: 18.75rem;
+    min-height: 12rem;
     max-height: 20rem;
     box-shadow: 0px 0px 2px 1px rgb(62 39 35 / 20%);
     border-radius: 2rem;
@@ -223,7 +212,8 @@ header {
 }
 
 .reviewsWrapper .clipContainer {
-    background-color: #bb6a6650;
+    background-color: #a0754330;
+    /* background-color: ; */
     width: 100%;
     height: 100%;
     position: absolute;
@@ -307,6 +297,46 @@ footer {
     width: 100%;
     min-height: 200px;
     color: white;
-    background-color: #2e7d32;
+    background: linear-gradient(90deg, #43a047 0%, #a07543 100%);
     border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+footer a{
+    color: #4743a0;
+}
+
+
+
+/* DARK THEME */
+body.dark-theme {
+    background: #191919;
+    color: #f2f2f2;
+}
+
+body.dark-theme header,
+body.dark-theme footer {
+    background: #222;
+    color: #f2f2f2;
+}
+
+body.dark-theme .articlesWrapper article {
+    background: #232323;
+    color: #f2f2f2;
+}
+
+body.dark-theme article {
+    background: #232323;
+    color: #f2f2f2;
+}
+
+body.dark-theme .featuresWrapper {
+    background: #636363;
+    color: #f2f2f2;
+}
+
+body.dark-theme nav a{
+    color: #f2f2f2;
 }

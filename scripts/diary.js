@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         emptyMessage: document.querySelector('.emptyMessage'),
         editFormWrapper: document.querySelector('.editFormWrapper'),
         editForm: document.querySelector('#editForm'),
-
+        loadingBox: document.querySelector('.loadingContainer'),
+        signOutBtn: document.getElementById('signOutBtn'),
     }
 
     //load all entries from database
@@ -25,6 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     docElements.addButton.addEventListener('click', () => {
         docElements.inputFormWrapper.style.display = 'flex';
     });
+
+    docElements.inputFormCancel.addEventListener('click', () => {
+        docElements.inputFormWrapper.style.display = 'none';
+    });
+
+    docElements.signOutBtn.addEventListener('click', (event) => signOut(event)
+    );
+
     //input form submission
     docElements.inputForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -34,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const entryData = { title, content };
 
         // show loading box
-
+        docElements.loadingBox.style.display = 'flex';
         try {
             console.log('sending data...');
             const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
@@ -51,12 +60,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const now = new Date();
             const dateTimeString = now.toLocaleString();
             createEntryCard(title, content, dateTimeString, entryID);
+            // show loading box
+            docElements.loadingBox.style.display = 'none';
         }
 
         catch (error) {
             console.log('error:', error);
         }
     });
+
+    // Search functionality
+    document.getElementById('searchBar').addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    const cards = document.querySelectorAll('.entryCard');
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if (query && title.includes(query)) {
+            card.classList.add('highlight');
+            // Optionally scroll to the first match
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            card.classList.remove('highlight');
+        }
+    });
+});
 
 });
 
@@ -121,14 +148,20 @@ function createEntryCard(title, content, dateTimeString, entryID) {
 
 async function signOut(event) {
     event.preventDefault();
-
     //check if user is signed in
+    // show loading box
+    docElements.loadingBox.style.display = 'flex';
 
     try {
         if (document.cookie.split(';').some(cookie => cookie.trim().startsWith('jwt='))) {
             const response = await axios.post(`${API_BASE_URL}/auth/logout`);
         }
+
+        // show loading box
+        docElements.loadingBox.style.display = 'none';
+        window.location.href="../index.html";
     }
+
     catch (error) {
         if (error.reponse && error.response.status === 404) {
             // you have to be signed in to logout
@@ -141,7 +174,8 @@ async function signOut(event) {
 
 async function loadAllEntries() {
 
-    console.log('loading resources...');
+    // show loading box
+    docElements.loadingBox.style.display = 'flex';
 
     try {
         const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
@@ -152,63 +186,84 @@ async function loadAllEntries() {
                 headers: { Authorization: `Bearer ${jwt}` }
             }
         );
-        console.log('response: ', response);
 
 
         let entriesArray = response.data.data;
-
         if (entriesArray.length > 0) {
             docElements.emptyMessage.style.display = 'none';
             for (let entry of entriesArray) {
                 createEntryCard(entry.title, entry.content, entry.updatedAt, entry.id);
             }
         }
+
+        // show loading box
+        docElements.loadingBox.style.display = 'none';
     }
     catch (error) {
         // console.log('error: ', error.reponse.status);
     }
 }
 
-async function editEntry(id) {
+function editEntry(id) {
 
-    let card = document.getElementById(id);
-    let oldTitle = card.querySelector('h3').textContent;
-    let oldContent = card.querySelector('p').textContent;
-    console.log("edit");
+    let oldCard = document.getElementById(id);
+    let oldTitle = oldCard.querySelector('h3').textContent;
+    let oldContent = oldCard.querySelector('p').textContent;
+
     // call input form with these values
     docElements.editFormWrapper.style.display = 'flex';
-    // docElements.inputForm.querySelector('title').value = oldTitle;
-    // docElements.inputForm.querySelector('entryContent').value = oldContent;
+    let editForm = docElements.editFormWrapper.querySelector('form');
+    let editTitle = editForm.querySelector('#title');
+    let editContent = editForm.querySelector('#entryContent');
+
+    editTitle.value = oldTitle;
+    editContent.textContent = oldContent;
+
+    // get ref to cancel button and save button
+    let cancelButton = editForm.querySelector('#editFormCancel');
+    let submitButton = editForm.querySelector('#editFormSubmit');
+
+    cancelButton.addEventListener('click', () => {
+        // simply hide the form for now
+        docElements.editFormWrapper.style.display = 'none';
+    });
 
 
-    //deleteEntry(id);
+    submitButton.addEventListener('click', async (event) => {
+        event.preventDefault();
 
+        const title = editTitle.value;
+        const content = editContent.value;
+        const newEntry = { title, content };
 
+        // show loading box
+        docElements.loadingBox.style.display = 'flex';
 
-    //    try{
-    //     const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
-    //         const jwt = token ? token.split('=')[1] : null;
+        try {
+            const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
+            const jwt = token ? token.split('=')[1] : null;
 
-    //         const response = await axios.put(`${API_BASE_URL}/diary/update/${id}`,
-    //             {
-    //                 headers: { Authorization: `Bearer ${jwt}` }
-    //             }
-    //         );
+            const response = await axios.put(`${API_BASE_URL}/diary/update/${id}`, newEntry,
+                {
+                    headers: { Authorization: `Bearer ${jwt}` }
+                }
+            );
+            // disappear the edit form
+            window.location.reload();
 
-    //         if(response.status === 200){
-    //             const card = document.getElementById(id);
-    //             if(card) card.remove();
-    //         }
-
-    //    }
-
-    //    catch(error){
-    //     console.log(error);
-    //    }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
 }
 
 
 async function deleteEntry(id) {
+
+    // show loading box
+    docElements.loadingBox.style.display = 'flex';
+
 
     try {
         const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('jwt='));
@@ -223,6 +278,8 @@ async function deleteEntry(id) {
         if (response.status === 200) {
             const card = document.getElementById(id);
             if (card) card.remove();
+            // show loading box
+            docElements.loadingBox.style.display = 'none';
         }
 
     }

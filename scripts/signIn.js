@@ -25,7 +25,7 @@ async function signInHandler(event) {
 
     //Show loading box
     signInContainer.style.display = 'none';
-    loadingContainer.style.display = 'flex';
+    loadingContainer.style.display = 'block';
 
     try {
         const response = await axios.post(`${API_BASE_URL}/auth/login`, signInData);
